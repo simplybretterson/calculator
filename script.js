@@ -1,5 +1,6 @@
 const hDisplayText = document.querySelector('.display-text');
 const hButtonGrid = document.querySelector('#button-grid');
+let hButtonList = hButtonGrid.querySelectorAll('.button');
 const MAX_DISPLAY_LENGTH = 14;
 const NUMERALS = '0123456789.';
 const OPERATORS = '+-/x=';
@@ -56,7 +57,7 @@ function buttonPress(e) {
     if (e.target !== e.currentTarget) {
       key = e.target.dataset.key;
     }
-  } else if (e.type === 'keydown') {
+  } else if (e.type === 'keydown' || e.type === 'keyup') {
     switch (e.keyCode) {
       case 48:
       case 96:
@@ -133,6 +134,21 @@ function buttonPress(e) {
 
   if (key === null) {
     return;
+  } else {
+    hButtonList.forEach(function(item) {
+      if (item.getAttribute('data-key') === key) {
+        if (e.type === 'keydown') {
+          item.classList.add('pressed');
+        } else if (e.type === 'keyup') {
+          item.classList.remove('pressed');
+        }
+      }
+    });
+  }
+
+  //don't process the input further if it's only a keyup
+  if (e.type === 'keyup') {
+    return;
   }
 
   //if an error is being displayed, reset before processing input
@@ -205,3 +221,4 @@ function buttonPress(e) {
 
 hButtonGrid.addEventListener('click', buttonPress, false);
 document.addEventListener('keydown', buttonPress);
+document.addEventListener('keyup', buttonPress);
