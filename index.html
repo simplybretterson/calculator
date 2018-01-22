@@ -1,8 +1,34 @@
 <html>
 <head>
-  <title>Calculator!</title>
+  <title>Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"/>
+  <link rel='stylesheet' type='text/css' href='style.css'/>
 </head>
 <body>
-  <h1>Calculator!</h1>
+  <div id='container'>
+    <h2>Calculator!</h2>
+    <div id='display'><h1 class='display-text'></h1></div>
+    <div id='button-grid'>
+      <div data-key='c' class='button' id='clear'><p>Clear</p></div>
+      <div data-key='b' class='button' id='back'><p>Back</p></div>
+      <div data-key='7' class='button numeral'><p>7</p></div>
+      <div data-key='8' class='button numeral'><p>8</p></div>
+      <div data-key='9' class='button numeral'><p>9</p></div>
+      <div data-key='/' class='button operator'><p>/</p></div>
+      <div data-key='4' class='button numeral'><p>4</p></div>
+      <div data-key='5' class='button numeral'><p>5</p></div>
+      <div data-key='6' class='button numeral'><p>6</p></div>
+      <div data-key='x' class='button operator'><p>x</p></div>
+      <div data-key='1' class='button numeral'><p>1</p></div>
+      <div data-key='2' class='button numeral'><p>2</p></div>
+      <div data-key='3' class='button numeral'><p>3</p></div>
+      <div data-key='-' class='button operator'><p>-</p></div>
+      <div data-key='0' class='button numeral'><p>0</p></div>
+      <div data-key='.' class='button numeral'><p>.</p></div>
+      <div data-key='=' class='button operator'><p>=</p></div>
+      <div data-key='+' class='button operator'><p>+</p></div>
+    </div>
+  </div>
 </body>
+<script type='text/javascript' src='script.js'></script>
 </html>
